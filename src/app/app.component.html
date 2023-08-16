@@ -1,10 +1,21 @@
-<div class="container">
-  <h1>Configurando o Angular</h1>
-  <ul>
-    <li><a routerLink="/item-list">Pagina Single</a></li>
-    <li><a routerLink="/single-page">Pagina itens</a></li>
+<div class="container mx-auto p-8">
+  <h1 class="text-3xl font-bold underline mb-4">
+    Tailwind works!
+  </h1>
+  <ul class="list-inside list-decimal">
+    <li class="mb-2">
+      <a href="#" routerLink="/item-list" class="text-blue-600 hover:underline">
+        Página Single
+      </a>
+    </li>
+    <li class="mb-4">
+      <a href="#" routerLink="/single-page" class="text-blue-600 hover:underline">
+        Página de Itens
+      </a>
+    </li>
   </ul>
+
+  <hr class="border-t border-gray-400 my-4">
 
   <router-outlet></router-outlet>
 </div>
-

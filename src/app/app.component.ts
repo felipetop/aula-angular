@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'projeto-angular';
+  isMenuOpen = false;
+
+  public toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

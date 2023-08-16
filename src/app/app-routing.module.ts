@@ -9,15 +9,15 @@ type RouteConfig = {
 };
 
 const routeConfig: RouteConfig = {
-  itemList: 'item-list',
-  singlePage: 'single-page',
-  help: 'help'
+  itemList: 'pokemons',
+  singlePage: 'detalhes',
+  help: 'ajuda'
 };
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: routeConfig['help'],
+    redirectTo: routeConfig['itemList'],
     pathMatch: 'full'
   },
   {

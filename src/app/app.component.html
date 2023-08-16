@@ -1,15 +1,35 @@
-<div class="container mx-auto p-8">
-  <nav class="bg-primary text-white">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold">Home</a>
-      <ul class="flex space-x-4">
-        <li><a href="#" routerLink="/single-page" class="hover:underline">Página Single</a></li>
-        <li><a href="#" routerLink="/item-list" class="hover:underline">Página de Itens</a></li>
-        <li><a href="#" routerLink="/help" class="hover:underline">Ajuda</a></li>
-      </ul>
+<div class="container mx-auto mt-5 bg-gray-100 rounded-lg p-4 shadow-md">
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a routerLink="/pokemons" class="text-2xl font-bold flex items-center text-white">
+        <img src="assets/logo/logo.png" alt="Logo" class="w-28 mr-2"> ChamaDex
+      </a>
+      <button (click)="toggleMenu()" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+      <div [class.hidden]="!isMenuOpen" class="hidden w-full md:flex md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a routerLink="/pokemons" routerLinkActive="text-white bg-red-700 text-white" class="flex px-4 rounded hover:bg-gray-100 md:border-0  dark:text-white dark:hover:bg-red-700">Pokémons</a>
+          </li>
+          <li>
+            <a routerLink="/ajuda" routerLinkActive="text-white bg-red-700 text-white" class="flex px-4 rounded hover:bg-gray-100 md:border-0  dark:text-white dark:hover:bg-red-700">Ajuda</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container mx-auto mt-4">
     <router-outlet></router-outlet>
   </div>
+
+  <footer class="bg-gray-800 text-white p-4 mt-20">
+    <div class="container mx-auto flex justify-center items-center">
+      <p class="text-center">&copy; 2023 ChamaDex. Nomes de Pokémon e personagens Pokémon são marcas registradas da Nintendo.</p>
+    </div>
+  </footer>
 </div>

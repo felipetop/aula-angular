@@ -1,15 +1,11 @@
-<div class="container mx-auto p-8">
-  <nav class="bg-primary text-white">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold">Home</a>
-      <ul class="flex space-x-4">
-        <li><a href="#" routerLink="/single-page" class="hover:underline">Página Single</a></li>
-        <li><a href="#" routerLink="/item-list" class="hover:underline">Página de Itens</a></li>
-        <li><a href="#" routerLink="/help" class="hover:underline">Ajuda</a></li>
-      </ul>
-    </div>
-  </nav>
+<div class="container mx-auto mt-5 bg-gray-100 rounded-lg p-4 shadow-md">
+
+  <app-menu></app-menu>
+
   <div class="container mx-auto mt-4">
     <router-outlet></router-outlet>
   </div>
+
+  <app-footer></app-footer>
+  
 </div>

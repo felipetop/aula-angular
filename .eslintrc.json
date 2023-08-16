@@ -1,0 +1,85 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "src/polyfills.ts"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "plugins": [
+        "deprecation",
+        "sonarjs",
+        "rxjs",
+        "jsdoc"
+      ],
+      "settings": {
+        "jsdoc": {
+          "mode": "typescript"
+        }
+      },
+      "rules": {
+        // Estilo e convenções
+        "@angular-eslint/directive-selector": ["error", {"type": "attribute", "prefix": "app", "style": "camelCase"}],
+        "@angular-eslint/component-selector": ["error", {"type": "element", "prefix": "app", "style": "kebab-case"}],
+        "@typescript-eslint/naming-convention": ["error", {"selector": "method", "format": ["camelCase"]}],
+        "quotes": ["error", "single"],
+
+        // Recomendado o NÃO uso de `any`
+        "@typescript-eslint/explicit-function-return-type": ["error"],
+        "@typescript-eslint/no-confusing-void-expression": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/no-unsafe-call": ["error"],
+        "@typescript-eslint/no-unsafe-member-access": ["error"],
+        "@typescript-eslint/no-implicit-any-catch": ["error"],
+
+        // Outras regras de boas práticas
+        "@typescript-eslint/no-inferrable-types": ["error"],
+        "@typescript-eslint/no-unnecessary-type-assertion": ["error"],
+        "@typescript-eslint/no-var-requires": ["error"],
+        "@typescript-eslint/no-unsafe-assignment": ["error"],
+        "@typescript-eslint/no-unsafe-return": ["error"],
+        "@typescript-eslint/strict-boolean-expressions": ["error"],
+        "@typescript-eslint/typedef": ["error"],
+        "deprecation/deprecation": ["error"],
+        "complexity": ["error", {"max": 10}],
+
+        // Regras do sonar
+        "sonarjs/no-collapsible-if": ["error"],
+        "sonarjs/no-identical-conditions": ["error"],
+        "sonarjs/no-use-of-empty-return-value": ["error"],
+        "sonarjs/no-duplicate-string": ["error"],
+
+        // Regras do jsdoc
+        "require-jsdoc": ["error", {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": false,
+            "ArrowFunctionExpression": true,
+            "FunctionExpression": true
+          }
+        }],
+        "jsdoc/check-alignment": ["error"],
+        "jsdoc/check-indentation": ["error"],
+        "jsdoc/newline-after-description": 0,
+        "jsdoc/no-types": ["error"]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        // Inclua aqui regras específicas para HTML, se necessário
+      }
+    }
+  ]
+}

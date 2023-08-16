@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ItemListComponent } from './item-list.component';
 import { ItemListRoutingModule } from './item-list-routing.module';
 
-
-
 @NgModule({
   declarations: [
     ItemListComponent

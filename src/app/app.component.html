@@ -1,10 +1,15 @@
-<div class="container">
-  <h1>Configurando o Angular</h1>
-  <ul>
-    <li><a routerLink="/item-list">Pagina Single</a></li>
-    <li><a routerLink="/single-page">Pagina itens</a></li>
-  </ul>
-
-  <router-outlet></router-outlet>
+<div class="container mx-auto p-8">
+  <nav class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">Home</a>
+      <ul class="flex space-x-4">
+        <li><a href="#" routerLink="/item-list" class="hover:underline">Página Single</a></li>
+        <li><a href="#" routerLink="/single-page" class="hover:underline">Página de Itens</a></li>
+        <li><a href="#" routerLink="/help" class="hover:underline">Ajuda</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mx-auto mt-4">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-

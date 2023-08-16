@@ -1,6 +1,6 @@
 {
   "name": "projeto-angular",
-  "version": "1.1.0",
+  "version": "1.2.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -36,6 +36,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
+    "autoprefixer": "^10.4.15",
     "eslint": "^8.17.0",
     "eslint-plugin-deprecation": "^1.5.0",
     "eslint-plugin-jsdoc": "^46.4.6",
@@ -47,6 +48,8 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "postcss": "^8.4.28",
+    "tailwindcss": "^3.3.3",
     "typescript": "~4.6.2"
   }
 }

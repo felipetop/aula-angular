@@ -29,7 +29,7 @@ const routes: Routes = [
           import('./modules/item-list/item-list.module').then(m => m.ItemListModule),
       },
       {
-        path: routeConfig['singlePage'],
+        path: routeConfig['singlePage'] + '/:id', // incluir o parâmetro :id
         loadChildren: (): Promise<SinglePageModule> =>
           import('./modules/single-page/single-page.module').then(m => m.SinglePageModule),
       },

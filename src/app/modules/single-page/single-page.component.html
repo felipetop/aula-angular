@@ -1,27 +1,27 @@
-<h1 class="text-3xl font-bold underline mb-4">
-  Charizard
+<h1 *ngIf="pokemon" class="text-3xl font-bold underline mb-4">
+  {{ pokemon.name }}
 </h1>
-<div class="flex flex-wrap md:flex-nowrap">
+<div *ngIf="pokemon" class="flex flex-wrap md:flex-nowrap">
   <!-- Primeira metade da página -->
   <div class="w-full md:w-1/4 flex flex-wrap">
     <div class="w-1/2 flex flex-col">
       <!-- Frente -->
       <div class="bg-gray-200 p-4">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif" alt="Frente" class="w-full">
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' + pokemon.id + '.gif'" alt="Frente" class="w-full">
       </div>
-      <!-- Frente Shiny -->
+      <!-- Costas -->
       <div class="bg-gray-300 p-4">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/6.gif" alt="Frente Shiny" class="w-full">
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/' + pokemon.id + '.gif'" alt="Frente Shiny" class="w-full">
       </div>
     </div>
     <div class="w-1/2 flex flex-col">
-      <!-- Costas -->
+      <!-- Frente Shiny -->
       <div class="bg-gray-200 p-4">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/6.gif" alt="Costas" class="w-full">
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/' + pokemon.id + '.gif'" alt="Costas" class="w-full">
       </div>
       <!-- Costas Shiny -->
       <div class="bg-gray-300 p-4">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/6.gif" alt="Costas Shiny" class="w-full">
+        <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/' + pokemon.id + '.gif'" alt="Costas Shiny" class="w-full">
       </div>
     </div>
   </div>
@@ -34,50 +34,19 @@
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Abilities</h2>
           <ul>
-            <li><a href="https://pokeapi.co/api/v2/ability/7/" class="text-blue-500">Limber</a></li>
-            <li><a href="https://pokeapi.co/api/v2/ability/150/" class="text-blue-500">Imposter (Hidden)</a></li>
+            <li *ngFor="let ability of pokemon.pokemonDetail[0]?.abilities">
+              <a href="#" class="text-blue-500">{{ ability.ability.name }}</a>
+            </li>
           </ul>
-        </div>
-
-        <!-- Base Experience -->
-        <div class="bg-gray-100 p-4 rounded">
-          <h2 class="text-2xl font-semibold mb-2">Base Experience</h2>
-          <p>101</p>
         </div>
 
         <!-- Height -->
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Height</h2>
-          <p>3</p>
+          <p>{{ pokemon.pokemonDetail[0]?.height }}</p>
         </div>
 
-        <!-- Held Items -->
-        <div class="bg-gray-100 p-4 rounded">
-          <h2 class="text-2xl font-semibold mb-2">Held Items</h2>
-          <ul>
-            <li><a href="https://pokeapi.co/api/v2/item/234/" class="text-blue-500">Metal Powder</a></li>
-            <li><a href="https://pokeapi.co/api/v2/item/251/" class="text-blue-500">Quick Powder</a></li>
-          </ul>
-        </div>
-
-        <!-- Moves -->
-        <div class="bg-gray-100 p-4 rounded">
-          <h2 class="text-2xl font-semibold mb-2">Moves</h2>
-          <ul>
-            <li><a href="https://pokeapi.co/api/v2/move/144/" class="text-blue-500">Transform</a></li>
-          </ul>
-        </div>
-
-        <!-- Game Indices -->
-        <div class="bg-gray-100 p-4 rounded">
-          <h2 class="text-2xl font-semibold mb-2">Game Indices</h2>
-          <ul>
-            <li>Red, Blue, Yellow</li>
-            <li>Gold, Silver, Crystal</li>
-            <li>Ruby, Sapphire, Emerald</li>
-            <!-- Add more as needed -->
-          </ul>
-        </div>
+        <!-- Adicione outros detalhes conforme necessário -->
       </div>
     </div>
   </div>

@@ -26,16 +26,32 @@
     </div>
   </div>
 
+
   <!-- Outras informações -->
   <div class="w-full md:w-full bg-gray-100 p-4">
     <div class="container mx-auto p-4">
       <div class="grid grid-cols-2 gap-4">
+
+        <!-- Text Descriptions -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Text Descriptions</h2>
+          <ul>
+            <li *ngFor="let text of pokemon.text">
+              {{ text.description }}
+            </li>
+          </ul>
+        </div>
         <!-- Abilities -->
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Abilities</h2>
           <ul>
             <li *ngFor="let ability of pokemon.pokemonDetail[0]?.abilities">
               <a href="#" class="text-blue-500">{{ ability.ability.name }}</a>
+              <ul>
+                <li *ngFor="let description of ability.ability.text">
+                  {{ description.description }}
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -44,6 +60,32 @@
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Height</h2>
           <p>{{ pokemon.pokemonDetail[0]?.height }}</p>
+        </div>
+
+        <!-- Weight -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Weight</h2>
+          <p>{{ pokemon.pokemonDetail[0]?.weight }}</p>
+        </div>
+
+        <!-- Types -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Types</h2>
+          <ul>
+            <li *ngFor="let type of pokemon.pokemonDetail[0]?.types">
+              {{ type.type.name }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Base Stats -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Base Stats</h2>
+          <ul>
+            <li *ngFor="let stat of pokemon.pokemonDetail[0]?.baseStat">
+              {{ stat.detail.name }}: {{ stat.stats }}
+            </li>
+          </ul>
         </div>
 
         <!-- Adicione outros detalhes conforme necessário -->

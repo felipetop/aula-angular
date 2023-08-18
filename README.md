@@ -1,6 +1,6 @@
 # Projeto Angular de Pokémon
 
-Este projeto foi criado para demonstrar várias funcionalidades do Angular, focando na integração de uma API de pokémon utilizando GraphQl. É possível ver uma demonstração do projeto clicando [aqui](http://seu-link-aqui.surge.sh/).
+Este projeto foi criado para demonstrar várias funcionalidades do Angular, focando na integração de uma API de pokémon utilizando GraphQl. É possível ver uma demonstração do projeto clicando [aqui](https://chamadex.surge.sh/).
 
 ## Recursos
 

@@ -29,7 +29,7 @@
     </div>
     <!-- Types -->
     <div class="flex gap-2 mt-4 justify-center capitalize">
-      <span *ngFor="let type of pokemon.pokemonDetail[0]?.types" [ngClass]="getTypeClass(type.type.name)">{{ type.type.name }}</span>
+      <span *ngFor="let type of pokemon.pokemonDetail[0].types" [ngClass]="getTypeClass(type.type.name)">{{ type.type.name }}</span>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Abilities</h2>
           <ul>
-            <li *ngFor="let ability of pokemon?.pokemonDetail[0]?.abilities">
+            <li *ngFor="let ability of pokemon.pokemonDetail[0]?.abilities">
               <span class="font-bold underline mb-4">{{ ability.ability.name }}</span>
               <ul>
                 <li *ngFor="let description of ability?.ability?.text">
@@ -69,7 +69,7 @@
         <div class="bg-gray-100 p-4 rounded">
           <h2 class="text-2xl font-semibold mb-2">Base Stats</h2>
           <ul>
-            <li *ngFor="let stat of pokemon?.pokemonDetail[0]?.baseStat">
+            <li *ngFor="let stat of pokemon.pokemonDetail[0]?.baseStat">
               <span class="capitalize font-bold underline mb-4">{{ stat?.detail?.name }}:</span> {{ stat?.stats }}
             </li>
           </ul>

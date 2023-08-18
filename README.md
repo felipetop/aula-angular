@@ -16,7 +16,7 @@ Este projeto foi criado para demonstrar várias funcionalidades do Angular, foca
 
 Você pode verificar a versão do Node.js usando o comando:
 
-\`\`\`CLI
+\`\`\`
 node --version
 \`\`\`
 
@@ -24,14 +24,14 @@ node --version
 
 Instale as dependências e inicie usando [yarn](https://yarnpkg.com):
 
-\`\`\`CLI
+\`\`\`
 yarn install
 yarn start
 \`\`\`
 
 Ou via [npm](https://www.npmjs.com/):
 
-\`\`\`CLI
+\`\`\`
 npm install
 npm start
 \`\`\`
@@ -40,7 +40,7 @@ npm start
 
 Para executar a verificação de lint no projeto, use o seguinte comando:
 
-\`\`\`CLI
+\`\`\`
 ng lint
 \`\`\`
 

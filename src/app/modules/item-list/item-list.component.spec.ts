@@ -19,11 +19,11 @@ describe('ItemListComponent', () => {
     };
 
     pokemonServiceMock = {
-      gen1Species$: of(pokemonDataMock as PokemonData)
+      gen1Species$: of(pokemonDataMock)
     };
 
     const activatedRouteStub = {
-      params: of({ id: '123' }) // Você pode ajustar isso para corresponder ao que o componente espera
+      params: of({ id: '123' })
     };
 
     await TestBed.configureTestingModule({

@@ -1,0 +1,82 @@
+<h1 *ngIf="pokemon" class="capitalize text-3xl font-bold underline mb-4">
+  {{ pokemon.name }}
+</h1>
+<div *ngIf="pokemon" class="flex flex-wrap md:flex-nowrap">
+  <!-- Primeira metade da página -->
+  <div class="w-full md:w-1/4 flex flex-col">
+
+    <div class="flex flex-wrap w-full">
+      <div class="w-1/2 flex flex-col">
+        <!-- Frente -->
+        <div class="bg-gray-200 p-4">
+          <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' + pokemon.id + '.gif'" alt="Frente" class="w-full">
+        </div>
+        <!-- Costas -->
+        <div class="bg-gray-300 p-4">
+          <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/' + pokemon.id + '.gif'" alt="Frente Shiny" class="w-full">
+        </div>
+      </div>
+      <div class="w-1/2 flex flex-col">
+        <!-- Frente Shiny -->
+        <div class="bg-gray-200 p-4">
+          <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/' + pokemon.id + '.gif'" alt="Costas" class="w-full">
+        </div>
+        <!-- Costas Shiny -->
+        <div class="bg-gray-300 p-4">
+          <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/' + pokemon.id + '.gif'" alt="Costas Shiny" class="w-full">
+        </div>
+      </div>
+    </div>
+    <!-- Types -->
+    <div class="flex gap-2 mt-4 justify-center capitalize">
+      <span *ngFor="let type of pokemon.pokemonDetail[0]?.types" [ngClass]="getTypeClass(type.type.name)">{{ type.type.name }}</span>
+    </div>
+  </div>
+
+
+  <!-- Outras informações -->
+  <div class="w-full md:w-full bg-gray-100 px-4">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-2 gap-4">
+
+        <!-- Text Descriptions -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Text Descriptions</h2>
+          <ul class="mb-2">
+            <li *ngFor="let text of pokemon.text">
+              {{ text.description }}
+            </li>
+          </ul>
+          <p><span class="font-bold underline mb-4">Height:</span> {{ pokemon.pokemonDetail[0]?.height }}</p>
+          <p><span class="font-bold underline mb-4">Weight:</span> {{ pokemon.pokemonDetail[0]?.weight }}</p>
+        </div>
+        <!-- Abilities -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Abilities</h2>
+          <ul>
+            <li *ngFor="let ability of pokemon.pokemonDetail[0]?.abilities">
+              <span class="font-bold underline mb-4">{{ ability.ability.name }}</span>
+              <ul>
+                <li *ngFor="let description of ability.ability.text">
+                  {{ description.description }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Base Stats -->
+        <div class="bg-gray-100 p-4 rounded">
+          <h2 class="text-2xl font-semibold mb-2">Base Stats</h2>
+          <ul>
+            <li *ngFor="let stat of pokemon.pokemonDetail[0]?.baseStat">
+              <span class="capitalize font-bold underline mb-4">{{ stat.detail.name }}:</span> {{ stat.stats }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Adicione outros detalhes conforme necessário -->
+      </div>
+    </div>
+  </div>
+</div>

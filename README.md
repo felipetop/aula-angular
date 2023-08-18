@@ -1,27 +1,59 @@
-# ProjetoAngular
+# Projeto Angular de Pokémon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
+Este projeto foi criado para demonstrar várias funcionalidades do Angular, focando na integração de uma API de pokémon utilizando GraphQl. É possível ver uma demonstração do projeto clicando [aqui](http://seu-link-aqui.surge.sh/).
 
-## Development server
+## Recursos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Lint**: Utiliza ESLint para manter a qualidade do código. [Documentação Oficial](https://eslint.org/)
+- **Router**: Implementa roteamento com lazy loading. [Documentação Oficial](https://angular.io/guide/router)
+- **Tailwind CSS**: Estilização com Tailwind CSS. [Documentação Oficial](https://tailwindcss.com/docs/installation#angular)
+- **Reactive Forms**: Trabalha com validadores de formulário. [Documentação Oficial](https://angular.io/guide/reactive-forms)
+- **Json Server**: Mocka requisições do backend. [Documentação Oficial](https://github.com/typicode/json-server)
 
-## Code scaffolding
+## Pré-requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Node.js v8 ou superior
 
-## Build
+Você pode verificar a versão do Node.js usando o comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+\`\`\`CLI
+node --version
+\`\`\`
 
-## Running unit tests
+### Instalação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Instale as dependências e inicie usando [yarn](https://yarnpkg.com):
 
-## Running end-to-end tests
+\`\`\`CLI
+yarn install
+yarn start
+\`\`\`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Ou via [npm](https://www.npmjs.com/):
 
-## Further help
+\`\`\`CLI
+npm install
+npm start
+\`\`\`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Lint
+
+Para executar a verificação de lint no projeto, use o seguinte comando:
+
+\`\`\`CLI
+ng lint
+\`\`\`
+
+Isso irá executar o ESLint e reportar qualquer problema encontrado no código.
+
+## Contribuição
+
+Este projeto foi criado para fins educacionais e de demonstração, portanto, pull requests não serão aceitos.
+
+## Sobre o Projeto
+
+Este projeto foi desenvolvido para explorar e demonstrar habilidades em Angular, incluindo roteamento, estilização responsiva, integração com APIs e muito mais. Ele serve como uma plataforma para aprender e experimentar as melhores práticas de desenvolvimento frontend.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { ItemListModule } from './item-list/item-list.module';
-import { SinglePageModule } from './single-page/single-page.module';
-import { HelpModule } from './help/help.module';
+import { ItemListModule } from './modules/item-list/item-list.module';
+import { SinglePageModule } from './modules/single-page/single-page.module';
+import { HelpModule } from './modules/help/help.module';
 
 type RouteConfig = {
   [key: string]: string;
@@ -26,17 +26,17 @@ const routes: Routes = [
       {
         path: routeConfig['itemList'],
         loadChildren: (): Promise<ItemListModule> =>
-          import('./item-list/item-list.module').then(m => m.ItemListModule),
+          import('./modules/item-list/item-list.module').then(m => m.ItemListModule),
       },
       {
-        path: routeConfig['singlePage'],
+        path: routeConfig['singlePage'] + '/:id', // incluir o parâmetro :id
         loadChildren: (): Promise<SinglePageModule> =>
-          import('./single-page/single-page.module').then(m => m.SinglePageModule),
+          import('./modules/single-page/single-page.module').then(m => m.SinglePageModule),
       },
       {
         path: routeConfig['help'],
         loadChildren: (): Promise<HelpModule> =>
-          import('./help/help.module').then(m => m.HelpModule),
+          import('./modules/help/help.module').then(m => m.HelpModule),
       },
     ]
   },

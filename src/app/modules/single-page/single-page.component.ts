@@ -68,4 +68,11 @@ export class SinglePageComponent implements OnInit {
     return typeClasses[typeName as PokemonType] || 'bg-white text-black p-1 px-4 rounded border border-gray-400';
   }
 
+  getSpriteUrl(pokemonId: number): string {
+    if(pokemonId >= 650) {
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+    }
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`;
+  }
+
 }

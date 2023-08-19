@@ -6,17 +6,17 @@
   <div class="w-full md:w-1/4 flex flex-col">
 
     <div class="flex flex-wrap w-full">
-      <div class="w-1/2 flex flex-col">
+      <div [ngClass]="pokemon.id > 650 ? 'w-full flex flex-col' : 'w-1/2 flex flex-col'">
         <!-- Frente -->
         <div class="bg-gray-200 p-4">
-          <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' + pokemon.id + '.gif'" alt="Frente" class="w-full">
+          <img [src]="this.getSpriteUrl(pokemon.id)" alt="Frente" class="w-full">
         </div>
         <!-- Costas -->
-        <div class="bg-gray-300 p-4">
+        <div *ngIf="pokemon.id < 650" class="bg-gray-300 p-4">
           <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/' + pokemon.id + '.gif'" alt="Frente Shiny" class="w-full">
         </div>
       </div>
-      <div class="w-1/2 flex flex-col">
+      <div *ngIf="pokemon.id < 650" class="w-1/2 flex flex-col">
         <!-- Frente Shiny -->
         <div class="bg-gray-200 p-4">
           <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/' + pokemon.id + '.gif'" alt="Costas" class="w-full">

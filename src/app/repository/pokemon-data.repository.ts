@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PokemonData } from '../models/pokemons-data.model';
-import { getPokemonsGraphQl } from './queries/pokemon-info.qraphql';
+import { getPokemonByIdGraphQl } from './queries/pokemon-info.graphql';
 
 /**
  * Serviço responsável por gerenciar as operações relacionadas aos Pokémons.
@@ -23,9 +23,11 @@ export class PokemonRepository {
    * Obtém informações sobre as espécies de Pokémon.
    * @returns Um Observable contendo os dados das espécies de Pokémon.
    */
-  public getSpecies(): Observable<PokemonData> {
-    const query = getPokemonsGraphQl
+  public getPokemonById(id: number): Observable<PokemonData> {
+    const query = getPokemonByIdGraphQl;
+    const variables = { pokemonId: id };
 
-    return this.httpClient.post<PokemonData>(this.endpoint, { query });
+
+    return this.httpClient.post<PokemonData>(this.endpoint, { query, variables });
   }
 }

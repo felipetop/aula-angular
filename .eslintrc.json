@@ -51,6 +51,19 @@
         "@typescript-eslint/typedef": ["error"],
         "deprecation/deprecation": ["error"],
         "complexity": ["error", {"max": 10}],
+        "semi": ["error", "always"],
+        "@typescript-eslint/explicit-member-accessibility": ["error", {
+          "accessibility": "explicit",
+          "overrides": {
+            "constructors": "no-public"
+          }
+        }],
+        "no-magic-numbers": ["error", {
+          "ignore": [0, 1],
+          "ignoreArrayIndexes": true,
+          "enforceConst": true,
+          "detectObjects": false
+        }],
 
         // Regras do sonar
         "sonarjs/no-collapsible-if": ["error"],

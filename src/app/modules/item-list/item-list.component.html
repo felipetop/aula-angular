@@ -1,6 +1,13 @@
 <h1 class="text-3xl font-bold underline mb-4">
   Pokémons
 </h1>
+<div class="flex flex-wrap mb-4">
+  <ng-container *ngFor="let gen of ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']; let i = index">
+    <button (click)="navigate(gen.toLowerCase())" class="bg-primary text-white font-bold py-2 px-4 rounded m-1 dark:hover:bg-red-700">
+      Geração {{ gen }}
+    </button>
+  </ng-container>
+</div>
 <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-9 gap-4">
   <ng-container *ngIf="pokemonData">
     <a *ngFor="let species of pokemonData?.data?.species"

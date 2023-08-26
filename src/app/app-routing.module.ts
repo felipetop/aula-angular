@@ -17,14 +17,14 @@ const routeConfig: RouteConfig = {
 const routes: Routes = [
   {
     path: '',
-    redirectTo: routeConfig['itemList'],
+    redirectTo: routeConfig['itemList'] + '/i',
     pathMatch: 'full'
   },
   {
     path: '',
     children: [
       {
-        path: routeConfig['itemList'],
+        path: routeConfig['itemList'] + '/:generation',
         loadChildren: (): Promise<ItemListModule> =>
           import('./modules/item-list/item-list.module').then(m => m.ItemListModule),
       },

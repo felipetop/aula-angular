@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent {
 
-  isMenuOpen = false;
+  public isMenuOpen = false;
 
   /**
    * Responsável pelo controle de abrir e fechar o menu

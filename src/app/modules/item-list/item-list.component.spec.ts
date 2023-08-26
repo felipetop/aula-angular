@@ -1,39 +1,42 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { ItemListComponent } from './item-list.component';
-import { PokemonService } from 'src/app/service/pokemon-data.service';
 import { PokemonData } from 'src/app/models/pokemons-data.model';
 import { ActivatedRoute } from '@angular/router';
+import { GenerationService } from 'src/app/service/generation-data.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ItemListComponent', () => {
   let component: ItemListComponent;
   let fixture: ComponentFixture<ItemListComponent>;
-  let pokemonServiceMock: Partial<PokemonService>;
+  let generationService: GenerationService;
+
+  const pokemonDataMock: PokemonData = {
+    data: {
+      species: []
+    }
+  };
 
   beforeEach(async () => {
-
-    const pokemonDataMock: PokemonData = {
-      data: {
-        species: []
-      }
-    };
-
-    pokemonServiceMock = {
-      gen1Species$: of(pokemonDataMock)
-    };
-
-    const activatedRouteStub = {
-      params: of({ id: '123' })
-    };
-
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
       declarations: [ItemListComponent],
       providers: [
-        { provide: PokemonService, useValue: pokemonServiceMock },
-        { provide: ActivatedRoute, useValue: activatedRouteStub }
+        GenerationService,
+        { provide: ActivatedRoute, useValue: { params: of({ generation: 'gen1' }) } }
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
+
+    generationService = TestBed.inject(GenerationService);
+    spyOn(generationService, 'getSpecies').and.callThrough();
+
+    Object.defineProperty(generationService, 'gen1Species$', {
+      get: () => of(pokemonDataMock)
+    });
   });
 
   beforeEach(() => {
@@ -46,12 +49,7 @@ describe('ItemListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should subscribe to gen1Species$ from PokemonService on initialization', () => {
-    const pokemonDataMock: PokemonData = {
-      data: {
-        species: [] // Você pode preencher isso com dados fictícios, se necessário
-      }
-    };
+  it('should subscribe to gen1Species$ from GenerationService on initialization', () => {
     expect(component.pokemonData).toEqual(pokemonDataMock);
   });
 

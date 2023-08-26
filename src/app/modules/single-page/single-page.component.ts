@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../service/pokemon-data.service';
 import { Specie } from '../../models/pokemons-data.model';
+import { LAST_GEN_V_POKEMON_ID } from 'src/app/helper/numbers';
 
 /**
  * Componente para exibir a página de detalhes de um Pokémon específico.
@@ -28,7 +29,7 @@ export class SinglePageComponent implements OnInit {
   /**
    * Inicializa o componente, inscrevendo-se nos parâmetros da rota para buscar o Pokémon específico pelo ID.
    */
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.params.subscribe(params => {
       const pokemonId = +params['id']; // O sinal de mais converte a string em número
       this.pokemonService.getPokemonById(pokemonId).subscribe(pokemon => {
@@ -42,7 +43,7 @@ export class SinglePageComponent implements OnInit {
    * @param typeName - O nome do tipo de Pokémon (por exemplo, 'fire', 'water', etc.).
    * @returns A classe CSS correspondente ao tipo de Pokémon.
    */
-  getTypeClass(typeName: string): string {
+  public getTypeClass(typeName: string): string {
     type PokemonType = 'normal' | 'flying' | 'fire' | 'water' | 'grass' | 'electric' | 'psychic' | 'poison' | 'rock' | 'ground' | 'bug' | 'steel' | 'fighting' | 'dark' | 'fairy' | 'dragon' | 'ice' | 'ghost';
     const typeClasses: Record<PokemonType, string> = {
       normal: 'bg-gray-300 text-gray-800 p-1 px-4 rounded border border-gray-400',
@@ -66,6 +67,18 @@ export class SinglePageComponent implements OnInit {
     };
 
     return typeClasses[typeName as PokemonType] || 'bg-white text-black p-1 px-4 rounded border border-gray-400';
+  }
+
+  /**
+   * Se for até a quinta geração pega o sprite animado, senão pega um sprite estatico
+   * @param pokemonId Id do pokémon
+   * @returns Link do sprite do pokémon
+   */
+  public getSpriteUrl(pokemonId: number): string {
+    if(pokemonId >= LAST_GEN_V_POKEMON_ID) {
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+    }
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonId}.gif`;
   }
 
 }

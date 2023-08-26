@@ -14,7 +14,7 @@ import { GenerationRepository } from '../repository/generation-data.repository';
 export class GenerationService {
   private pokemonSpecies = new ReplaySubject<PokemonData>(1);
   /** Observable para as espécies de Pokémon da primeira geração. */
-  public gen1Species$ = this.pokemonSpecies.asObservable();
+  public gen1Species$: Observable<PokemonData> = this.pokemonSpecies.asObservable();
 
   /**
    * @param pokemonRepository - Repositório para buscar dados dos Pokémons.
@@ -28,8 +28,8 @@ export class GenerationService {
     this.pokemonRepository.getSpecies(generation).pipe(
       take(1)
     ).subscribe({
-      next: response => { this.pokemonSpecies.next(response); },
-      error: error => { console.error('Erro ao buscar os dados:', error); }
+      next: response => { this.pokemonSpecies.next(response) },
+      error: error => { console.error('Erro ao buscar os dados:', error) }
     });
   }
 

@@ -12,8 +12,8 @@
   <ng-container *ngIf="pokemonData">
     <a *ngFor="let species of pokemonData?.data?.species"
       [routerLink]="['/detalhes', species.id]"
-       class="bg-primary rounded h-32 transition-transform transform hover:scale-110 cursor-pointer relative flex items-center justify-center">
-      <img [src]="getSpriteUrl(species.id)" alt="{{ species.name }}">
+       class="group bg-primary rounded h-32 transition-transform transform hover:scale-110 cursor-pointer relative flex items-center justify-center">
+      <img class="group-hover:animate-bounce" [src]="getSpriteUrl(species.id)" alt="{{ species.name }}">
       <span class="text-white font-bold text-xl absolute bottom-0 left-1/2 transform -translate-x-1/2">{{ species.name }}</span>
     </a>
   </ng-container>

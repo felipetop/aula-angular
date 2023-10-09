@@ -27,7 +27,6 @@ export class GenerationRepository {
     const query = getGenerationGraphQl;
     const variables = { generation: [`generation-${generation}`] };
 
-
     return this.httpClient.post<PokemonData>(this.endpoint, { query, variables });
   }
 }

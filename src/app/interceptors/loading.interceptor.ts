@@ -23,30 +23,31 @@ export class LoadingInterceptor implements HttpInterceptor {
    * Quando uma chamada HTTP é feita, o loading é iniciado. Quando a chamada termina (com sucesso ou erro),
    * o loading é parado.
    *
-   * @template T - O tipo do corpo da requisição/response.
-   * @param {HttpRequest<T>} req - A requisição HTTP original.
-   * @param {HttpHandler} next - O próximo handler no pipeline de interceptação.
-   * @returns {Observable<HttpEvent<T>>} - Um observable do evento HTTP.
    */
   constructor(private loadingService: LoadingService) { }
 
   /**
-   * Inteceptador de chamadas http destinada para iniciar loading
-   * Quando faz uma chamada http começa um loading, quando termina a chamada o loading para
-   * @param req
-   * @param next
-   * @returns
+   * Intercepta chamadas HTTP para iniciar e parar o indicador de loading.
+   * Quando uma chamada HTTP é feita, o indicador de loading é iniciado.
+   * Quando a chamada termina (com sucesso ou erro), o indicador de loading é parado.
+   *
+   * @param req A requisição HTTP original.
+   * @param next O próximo handler no pipeline de interceptação.
+   * @returns Um observable do evento HTTP.
    */
   public intercept<T>(req: HttpRequest<T>, next: HttpHandler): Observable<HttpEvent<T>> {
     this.loadingService.startLoading();
 
     return next.handle(req).pipe(
-      tap((event: HttpEvent<T>) => {
-        if (event instanceof HttpResponse) {
+      tap({
+        next: (event: HttpEvent<T>) => {
+          if (event instanceof HttpResponse) {
+            this.loadingService.stopLoading();
+          }
+        },
+        error: () => {
           this.loadingService.stopLoading();
         }
-      }, () => {
-        this.loadingService.stopLoading();
       })
     );
   }

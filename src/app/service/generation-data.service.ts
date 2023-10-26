@@ -28,8 +28,8 @@ export class GenerationService {
     this.pokemonRepository.getSpecies(generation).pipe(
       take(1)
     ).subscribe({
-      next: response => { this.pokemonSpecies.next(response) },
-      error: error => { console.error('Erro ao buscar os dados:', error) }
+      next: response => { this.pokemonSpecies.next(response); },
+      error: error => { console.error('Erro ao buscar os dados:', error); }
     });
   }
 

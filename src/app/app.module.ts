@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { LoadingComponent } from './components/loading/loading.component';
+import { LoadingModule } from './components/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

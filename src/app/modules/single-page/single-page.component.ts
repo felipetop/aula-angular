@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../service/pokemon-data.service';
 import { Specie } from '../../models/pokemons-data.model';
 import { LAST_GEN_V_POKEMON_ID } from 'src/app/helper/numbers';
+import { take } from 'rxjs';
 
 /**
  * Componente para exibir a página de detalhes de um Pokémon específico.
@@ -32,7 +33,7 @@ export class SinglePageComponent implements OnInit {
   public ngOnInit(): void {
     this.route.params.subscribe(params => {
       const pokemonId = +params['id']; // O sinal de mais converte a string em número
-      this.pokemonService.getPokemonById(pokemonId).subscribe(pokemon => {
+      this.pokemonService.getPokemonById(pokemonId).pipe(take(1)).subscribe(pokemon => {
         this.pokemon = pokemon;
       });
     });

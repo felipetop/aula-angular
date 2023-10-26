@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from './service/pokemon-data.service';
+import { LoadingService } from './service/loading.service';
 
 /**
  * Componente raiz da aplicação.
